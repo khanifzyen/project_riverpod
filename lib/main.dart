@@ -1,13 +1,14 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:flutter/material.dart';
+import 'providers/provider.dart';
 
-part 'main.g.dart';
+//part 'main.g.dart';
 
-@riverpod
-String helloWorld(HelloWorldRef ref) {
-  return 'Hello World';
-}
+// @riverpod
+// String helloWorld(HelloWorldRef ref) {
+//   return 'Hello World';
+// }
 
 void main() {
   runApp(const ProviderScope(
@@ -20,7 +21,7 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final String value = ref.watch(helloWorldProvider);
+    final value = ref.watch(activityProvider);
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -29,7 +30,7 @@ class MyApp extends ConsumerWidget {
       ),
       home: Scaffold(
         body: Center(
-          child: Text(value),
+          child: Text(value.toString()),
         ),
       ),
     );
