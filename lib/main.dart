@@ -1,14 +1,6 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:flutter/material.dart';
-import 'providers/provider.dart';
-
-//part 'main.g.dart';
-
-// @riverpod
-// String helloWorld(HelloWorldRef ref) {
-//   return 'Hello World';
-// }
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'counter_page.dart';
 
 void main() {
   runApp(const ProviderScope(
@@ -16,23 +8,19 @@ void main() {
   ));
 }
 
-class MyApp extends ConsumerWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final value = ref.watch(activityProvider);
+  Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Scaffold(
-        body: Center(
-          child: Text(value.toString()),
-        ),
-      ),
+      home: const CounterPage(),
     );
   }
 }
